@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact form</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+  </head>
+  <body class="bg-green-200">
+    <div
+      class="container mx-auto py-10 px-8 transition-all duration-300 ease-in-out sm:px-0 sm:w-[calc(100%_-_10rem)] md:w-[600px] md:py-20 lg:w-[700px]"
+    >
+      <div
+        class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-x-1/2 flex flex-col gap-y-9 bg-white rounded-2xl p-6"
+      >
+        <h1 class="h1-style">Contact Us</h1>
+        <form class="form-style md:gap-y-7">
+          <div
+            class="form-style md:flex-row md:gap-y-0 md:justify-between md:gap-x-4"
+          >
+            <div class="input-div md:flex-1">
+              <label>First Name <span class="label-primary">*</span></label>
+              <input type="text" class="input-primary" />
+            </div>
+            <div class="input-div md:flex-1">
+              <label>Last Name <span class="label-primary">*</span></label>
+              <input type="text" class="input-primary" />
+            </div>
+          </div>
+          <div class="input-div">
+            <label>Email Address <span class="label-primary">*</span></label>
+            <input type="text" class="input-primary" />
+          </div>
+          <div class="input-div">
+            <p>
+              Query Type
+              <span class="label-primary">*</span>
+            </p>
+            <div
+              class="input-div md:flex-row md:gap-y-0 md:justify-between md:gap-x-4"
+            >
+              <div
+                class="input-primary hover:border-gray-500 flex items-center mb-2 md:mb-0 md:flex-1"
+              >
+                <input type="radio" class="ml-3" />
+                <label class="ml-3">General Enquiry</label>
+              </div>
+              <div
+                class="input-primary hover:border-gray-500 flex items-center md:flex-1"
+              >
+                <input type="radio" class="ml-3" />
+                <label class="ml-3">Support Request</label>
+              </div>
+            </div>
+          </div>
+          <div class="input-div">
+            <label>Message<span class="label-primary">*</span></label>
+            <textarea class="input-primary h-64 sm:h-32 resize-none"></textarea>
+          </div>
+          <div class="flex items-center gap-x-4">
+            <input type="checkbox" name="" id="" class="cursor-pointer" />
+            <label for="" class="text-sm md:text-base"
+              >I constent to being contacted by the team
+              <span class="label-primary ml-1 text-base">*</span>
+            </label>
+          </div>
+          <button class="button-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
