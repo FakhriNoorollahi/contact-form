@@ -5,31 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>contact form</title>
     <link rel="stylesheet" href="./build/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+    />
   </head>
   <body class="bg-green-200">
     <div
-      class="container mx-auto py-10 px-8 transition-all duration-300 ease-in-out sm:px-0 sm:w-[calc(100%_-_10rem)] md:w-[600px] md:py-20 lg:w-[700px]"
+      class="container mx-auto py-14 px-8 transition-all duration-300 ease-in-out sm:px-0 sm:w-[calc(100%_-_10rem)] md:w-[600px] md:py-28 lg:w-[700px]"
     >
       <div
-        class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-x-1/2 flex flex-col gap-y-9 bg-white rounded-2xl p-6"
+        class="message-box fixed center-div top-7 z-10 bg-black w-60 sm:w-80 md:w-96 p-4 rounded-xl flex flex-col gap-y-1 md:gap-y-3 text-white transition-all duration-700 ease-in-out opacity-0"
+      >
+        <div class="flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <span class="ml-2 font-semibold text-sm md:text-base"
+            >Message Sent!</span
+          >
+        </div>
+        <p class="text-xs md:text-sm">
+          Thanks for completing the form.We'll been touch soon.
+        </p>
+      </div>
+      <div
+        class="relative top-1/2 center-div flex flex-col gap-y-9 bg-white rounded-2xl py-6 px-6 md:px-8"
       >
         <h1 class="h1-style">Contact Us</h1>
-        <form class="form-style md:gap-y-7">
+        <form class="form-style">
           <div
             class="form-style md:flex-row md:gap-y-0 md:justify-between md:gap-x-4"
           >
             <div class="input-div md:flex-1">
               <label>First Name <span class="label-primary">*</span></label>
-              <input type="text" class="input-primary" />
+              <input type="text" class="input-primary input-text" />
+              <span class="span-error">This filed is Required</span>
             </div>
             <div class="input-div md:flex-1">
               <label>Last Name <span class="label-primary">*</span></label>
-              <input type="text" class="input-primary" />
+              <input type="text" class="input-primary input-text" />
+              <span class="span-error">This filed is Required</span>
             </div>
           </div>
           <div class="input-div">
             <label>Email Address <span class="label-primary">*</span></label>
-            <input type="text" class="input-primary" />
+            <input type="email" class="input-primary input-email" />
+            <span class="span-error">This filed is Required</span>
           </div>
           <div class="input-div">
             <p>
@@ -42,31 +75,64 @@
               <div
                 class="input-primary hover:border-gray-500 flex items-center mb-2 md:mb-0 md:flex-1"
               >
-                <input type="radio" class="ml-3" />
-                <label class="ml-3">General Enquiry</label>
+                <input
+                  type="radio"
+                  id="general"
+                  name="query-type"
+                  value="general"
+                  class="ml-3"
+                />
+                <label for="general" class="ml-3">General Enquiry</label>
               </div>
               <div
                 class="input-primary hover:border-gray-500 flex items-center md:flex-1"
               >
-                <input type="radio" class="ml-3" />
-                <label class="ml-3">Support Request</label>
+                <input
+                  type="radio"
+                  id="support"
+                  name="query-type"
+                  value="support"
+                  class="ml-3"
+                />
+                <label for="support" class="ml-3">Support Request</label>
               </div>
             </div>
+            <span class="span-error error-message"
+              >Please select a query type</span
+            >
           </div>
           <div class="input-div">
             <label>Message<span class="label-primary">*</span></label>
-            <textarea class="input-primary h-64 sm:h-32 resize-none"></textarea>
+            <textarea
+              class="input-primary input-text h-64 sm:h-32 resize-none"
+            ></textarea>
+            <span class="span-error">This filed is Required</span>
           </div>
-          <div class="flex items-center gap-x-4">
-            <input type="checkbox" name="" id="" class="cursor-pointer" />
-            <label for="" class="text-sm md:text-base"
-              >I constent to being contacted by the team
-              <span class="label-primary ml-1 text-base">*</span>
-            </label>
+          <div>
+            <div class="flex items-center gap-x-4">
+              <input
+                type="checkbox"
+                name="rules"
+                id="rules"
+                class="cursor-pointer"
+              />
+              <label for="" class="text-sm md:text-base"
+                >I consent to being contacted by the team
+                <span class="label-primary ml-1 text-base">*</span>
+              </label>
+            </div>
+            <span class="span-error error-message"
+              >To submit this form, please consent to being contacted.</span
+            >
           </div>
-          <button class="button-primary">Submit</button>
+          <button class="button-primary submit-btn" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
+
+    <script src="/src/js/index.js" type="module"></script>
+    <script src="/src/js/validation.js" type="module"></script>
   </body>
 </html>
