@@ -49,25 +49,31 @@
             class="form-style md:flex-row md:gap-y-0 md:justify-between md:gap-x-4"
           >
             <div class="input-div md:flex-1">
-              <label>First Name <span class="label-primary">*</span></label>
+              <label class="label-primary"
+                >First Name <span class="label-star">*</span></label
+              >
               <input type="text" class="input-primary input-text" />
               <span class="span-error">This filed is Required</span>
             </div>
             <div class="input-div md:flex-1">
-              <label>Last Name <span class="label-primary">*</span></label>
+              <label class="label-primary"
+                >Last Name <span class="label-star">*</span></label
+              >
               <input type="text" class="input-primary input-text" />
               <span class="span-error">This filed is Required</span>
             </div>
           </div>
           <div class="input-div">
-            <label>Email Address <span class="label-primary">*</span></label>
+            <label class="label-primary"
+              >Email Address <span class="label-star">*</span></label
+            >
             <input type="email" class="input-primary input-email" />
             <span class="span-error">This filed is Required</span>
           </div>
           <div class="input-div">
-            <p>
+            <p class="label-primary">
               Query Type
-              <span class="label-primary">*</span>
+              <span class="label-star">*</span>
             </p>
             <div
               class="input-div md:flex-row md:gap-y-0 md:justify-between md:gap-x-4"
@@ -84,7 +90,7 @@
                     class="radioBtn"
                   />
                 </div>
-                <label for="general" class="radioBtn-label"
+                <label for="general" class="radioBtn-label label-primary"
                   >General Enquiry</label
                 >
               </div>
@@ -98,7 +104,7 @@
                     class="radioBtn"
                   />
                 </div>
-                <label for="support" class="radioBtn-label"
+                <label for="support" class="radioBtn-label label-primary"
                   >Support Request</label
                 >
               </div>
@@ -108,25 +114,25 @@
             >
           </div>
           <div class="input-div">
-            <label>Message<span class="label-primary">*</span></label>
+            <label class="label-primary"
+              >Message<span class="label-star">*</span></label
+            >
             <textarea
               class="input-primary input-text h-64 sm:h-32 resize-none"
             ></textarea>
             <span class="span-error">This filed is Required</span>
           </div>
-          <div>
+          <div class="mb-2">
             <div class="flex items-center">
               <input
                 type="checkbox"
                 name="rules"
                 id="rules"
-                class="form-checkbox text-green-900 focus:ring-0"
+                class="form-checkbox cursor-pointer text-green-700 ring-0 ring-offset-0 focus:ring-0"
               />
-              <label
-                for="rules"
-                class="cursor-pointer pl-5 text-sm md:text-base"
+              <label for="rules" class="cursor-pointer pl-5 label-primary"
                 >I consent to being contacted by the team
-                <span class="label-primary ml-1 text-base">*</span>
+                <span class="label-star ml-1">*</span>
               </label>
             </div>
             <span class="span-error error-message"

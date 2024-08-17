@@ -24,6 +24,7 @@ function submitHandler(e) {
   const checkBoxInputVal = checkCheckBoxInput();
 
   if (!textInputVal || !emailVal || !radioInputVal || !checkBoxInputVal) {
+    checkInputsStyle();
     return;
   }
 
@@ -43,12 +44,10 @@ function checkTextInput() {
   inputText.forEach((item) => {
     const inputValue = item.value;
     if (!inputValue) {
-      item.nextElementSibling.style.opacity = "1";
-      item.parentElement.style.borderColor = "hsl(0,66%,54%)";
+      checkErrorMsgInputs(item, inputValue);
       isTrue = false;
     } else {
-      item.nextElementSibling.style.opacity = "0";
-      item.parentElement.style.borderColor = "#6b7280";
+      item.nextElementSibling.classList.remove("opacity-100");
     }
   });
 
@@ -59,18 +58,20 @@ function checkEmailInput() {
   const emailValue = inputEmail.value;
   const validateEmail = validateEmailInput(emailValue);
   if (!emailValue || !validateEmail) {
-    inputEmail.nextElementSibling.style.opacity = "1";
-    inputEmail.parentElement.style.borderColor = "hsl(0,66%,54%)";
-    if (!emailValue) {
-      inputEmail.nextElementSibling.textContent = "This filed is Required";
-    } else if (!validateEmail) {
-      inputEmail.nextElementSibling.textContent =
-        "Please enter a valid email address";
-    }
+    checkEmailInputValue(emailValue, validateEmail);
   } else {
-    inputEmail.nextElementSibling.style.opacity = "0";
-    inputEmail.parentElement.style.borderColor = "#6b7280";
+    inputEmail.nextElementSibling.classList.remove("opacity-100");
     return true;
+  }
+}
+
+function checkEmailInputValue(emailValue, validateEmail) {
+  checkErrorMsgInputs(inputEmail, validateEmail);
+  if (!emailValue) {
+    inputEmail.nextElementSibling.textContent = "This filed is Required";
+  } else if (!validateEmail) {
+    inputEmail.nextElementSibling.textContent =
+      "Please enter a valid email address";
   }
 }
 
@@ -90,8 +91,18 @@ function checkCheckBoxInput() {
 
 function checkErrorMsg(isChecked, index) {
   !isChecked
-    ? (errorMsg[index].style.opacity = "1")
-    : (errorMsg[index].style.opacity = "0");
+    ? errorMsg[index].classList.add("opacity-100")
+    : errorMsg[index].classList.remove("opacity-100");
+}
+
+function checkErrorMsgInputs(item, value) {
+  if (value) {
+    item.nextElementSibling.classList.remove("opacity-100");
+    item.classList.remove("border-[#d73c3c]");
+  } else {
+    item.nextElementSibling.classList.add("opacity-100");
+    item.classList.add("border-[#d73c3c]");
+  }
 }
 
 function clearInputsValue() {
@@ -101,12 +112,35 @@ function clearInputsValue() {
   checkBoxInput.checked = false;
 }
 
+function checkInputsStyle() {
+  inputText.forEach((item) => {
+    item.addEventListener("input", () => {
+      checkErrorMsgInputs(item, item.value);
+    });
+  });
+
+  inputEmail.addEventListener("input", (e) => {
+    const emailVal = e.target.value;
+    const validateEmail = validateEmailInput(emailVal);
+    checkEmailInputValue(emailVal, validateEmail);
+  });
+
+  radioInput.forEach((item) => {
+    item.addEventListener("change", () => {
+      if (item.checked) checkErrorMsg(true, 0);
+    });
+  });
+
+  checkBoxInput.addEventListener("change", () => {
+    if (checkBoxInput.checked) checkErrorMsg(true, 1);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   submitBtn.addEventListener("click", submitHandler);
 
   inputText.forEach((item) => {
     item.addEventListener("paste", (e) => e.preventDefault());
   });
-
   inputEmail.addEventListener("paste", (e) => e.preventDefault());
 });
