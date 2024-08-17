@@ -9,7 +9,7 @@
     @apply left-1/2 -translate-x-1/2;
   }
   .input-primary {
-    @apply border-[1px] border-solid border-gray-500 py-2 px-3 rounded-md outline-none cursor-pointer hover:border-green-900 focus:border-green-900;
+    @apply border-[1px] border-solid border-gray-500 py-2 px-3 rounded-md focus:ring-0 cursor-pointer hover:border-green-900 focus:border-green-900;
   }
   .label-primary {
     @apply text-green-600 inline-block ml-[8px];
@@ -31,4 +31,31 @@
   .button-primary {
     @apply p-4 w-full bg-green-600 text-white rounded-md font-bold transition-all duration-300 ease-in-out hover:bg-green-900;
   }
+
+  .radioBtn-container {
+    @apply hover:border-gray-500 flex items-center;
+  }
+  .radioBtn-container:has(input:checked) {
+    @apply bg-green-200 border-green-900;
+  }
+
+  .radioBtn-div {
+    @apply ml-3 w-5 h-5 flex items-center justify-center;
+  }
+
+  .radioBtn-label {
+    @apply pl-3 cursor-pointer flex-1;
+  }
+
+  .radioBtn {
+    @apply form-radio  cursor-pointer p-2 text-green-900 focus:ring-0 focus:ring-transparent;
+  }
+
+  .form-radio {
+    @apply checked:bg-none checked:outline checked:outline-2 checked:outline-offset-[3px] checked:outline-green-700 checked:p-0 checked:w-3 checked:h-3;
+  }
+
+  /* .form-radio input[type="radio"]:checked .radioBtn-container {
+    @apply bg-red-600;
+  } */
 }
