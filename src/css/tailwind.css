@@ -1,6 +1,29 @@
 @import url("/src/css/fonts.css");
 
 @tailwind base;
+
+* {
+  scrollbar-width: 20px;
+  scrollbar-color: #3bb2b8;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e8f5e9;
+  border-radius: 5px 0 0 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3bb2b8;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+  cursor: pointer;
+}
+
 @tailwind components;
 @tailwind utilities;
 
